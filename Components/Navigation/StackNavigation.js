@@ -1,29 +1,26 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "../Home";
 import LoginScreen from "../LoginScreens/LoginScreen";
-import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet } from "react-native";
 import AppBackground from "../AppBackgroundColor";
 import OtpScreen from "../LoginScreens/OtpScreen";
+import HomeScreen from "../HomeScreen";
+import { Image } from "react-native";
 
 const StackNavigation = () => {
     const Stack = createNativeStackNavigator();
     return (
         <>
-            <NavigationContainer>
+              <NavigationContainer>
                 <AppBackground>
-                    <Stack.Navigator>
-                        <Stack.Screen name="Login" component={LoginScreen} options={{
-                            headerTitle: '',
-                        }} />
-                        <Stack.Screen name="Otp" component={OtpScreen} options={{
-                            headerTitle:'',
-                        }} />
-                        <Stack.Screen name="Home" component={Home} />
+                    <Stack.Navigator screenOptions={{headerStyle: { backgroundColor: '#dec9e9'}, headerTitleStyle: {fontWeight: 'bold'} , headerTitleAlign: 'center'}}>
+                        <Stack.Screen name="Login" component={LoginScreen} options={{headerTitle: 'Sign In'}} />
+                        <Stack.Screen name="Otp" component={OtpScreen} options={{headerTitle:'Sign In'}} />
+                        <Stack.Screen name="Home" component={HomeScreen} options={{headerTitle: 'Online Care'}} />
                     </Stack.Navigator>
                 </AppBackground>
             </NavigationContainer>
+
         </>
     )
 }
